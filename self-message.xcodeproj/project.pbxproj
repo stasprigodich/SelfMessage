@@ -87,12 +87,12 @@
 				A64C93101BEABB34008F6744 /* Views */,
 				A64C930F1BEABB24008F6744 /* Models */,
 				A64C93091BEA3774008F6744 /* ViewControllers */,
-				A64C92F51BEA343E008F6744 /* SMAppDelegate.h */,
-				A64C92F61BEA343E008F6744 /* SMAppDelegate.m */,
 				A64C92FE1BEA343E008F6744 /* Assets.xcassets */,
 				A64C92FB1BEA343E008F6744 /* Main.storyboard */,
-				A64C93031BEA343E008F6744 /* Info.plist */,
+				A64C92F51BEA343E008F6744 /* SMAppDelegate.h */,
+				A64C92F61BEA343E008F6744 /* SMAppDelegate.m */,
 				A64C92F21BEA343E008F6744 /* Supporting Files */,
+				A64C93031BEA343E008F6744 /* Info.plist */,
 			);
 			path = "self-message";
 			sourceTree = "<group>";

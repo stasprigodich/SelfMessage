@@ -10,4 +10,10 @@
 
 @interface SMViewController : UIViewController
 
+@property (nonatomic) BOOL enableKeyboardHidingOnTouch;
+
+- (void)dismissKeyboard;
+- (void)keyboardWillShow:(NSNotification*)notification;
+- (void)keyboardWillHide:(NSNotification*)notification;
+
 @end
