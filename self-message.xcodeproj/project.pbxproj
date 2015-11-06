@@ -14,6 +14,7 @@
 		A64C92FD1BEA343E008F6744 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A64C92FB1BEA343E008F6744 /* Main.storyboard */; };
 		A64C92FF1BEA343E008F6744 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A64C92FE1BEA343E008F6744 /* Assets.xcassets */; };
 		A64C930E1BEA3E86008F6744 /* SMViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A64C930D1BEA3E86008F6744 /* SMViewController.m */; };
+		A6FCD63B1BEBE82A00981AD8 /* SMTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = A6FCD63A1BEBE82900981AD8 /* SMTextView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,6 +30,8 @@
 		A64C93031BEA343E008F6744 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A64C930C1BEA3E86008F6744 /* SMViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMViewController.h; sourceTree = "<group>"; };
 		A64C930D1BEA3E86008F6744 /* SMViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMViewController.m; sourceTree = "<group>"; };
+		A6FCD6391BEBE82900981AD8 /* SMTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMTextView.h; sourceTree = "<group>"; };
+		A6FCD63A1BEBE82900981AD8 /* SMTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMTextView.m; sourceTree = "<group>"; };
 		EE7B5C35BE12550ECD0E92A7 /* Pods-self-message.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-self-message.release.xcconfig"; path = "Pods/Target Support Files/Pods-self-message/Pods-self-message.release.xcconfig"; sourceTree = "<group>"; };
 		F00D53022C86B1DE09BEB676 /* libPods-self-message.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-self-message.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -142,6 +145,7 @@
 		A64C93101BEABB34008F6744 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				A6FCD6381BEBE80300981AD8 /* Base */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -159,6 +163,15 @@
 			children = (
 			);
 			path = API;
+			sourceTree = "<group>";
+		};
+		A6FCD6381BEBE80300981AD8 /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				A6FCD6391BEBE82900981AD8 /* SMTextView.h */,
+				A6FCD63A1BEBE82900981AD8 /* SMTextView.m */,
+			);
+			path = Base;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -286,6 +299,7 @@
 				A64C92FA1BEA343E008F6744 /* SMChatViewController.m in Sources */,
 				A64C92F71BEA343E008F6744 /* SMAppDelegate.m in Sources */,
 				A64C92F41BEA343E008F6744 /* main.m in Sources */,
+				A6FCD63B1BEBE82A00981AD8 /* SMTextView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
