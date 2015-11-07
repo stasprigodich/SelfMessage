@@ -13,8 +13,12 @@
 #import "SMChatLocationTableViewCell.h"
 #import "SMSettings.h"
 #import "SMAPIManager.h"
+#import "SMCameraView.h"
 
-@interface SMChatViewController () <UITableViewDataSource, UITableViewDelegate, UITextViewDelegate, CLLocationManagerDelegate>
+static const int cameraViewHeight = 230;
+static const int cameraViewTag = 3;
+
+@interface SMChatViewController () <UITableViewDataSource, UITableViewDelegate, UITextViewDelegate, CLLocationManagerDelegate, SMCameraViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *bottomConstraint;
@@ -27,6 +31,9 @@
 @property (nonatomic,strong) CLLocationManager *locationManager;
 @property (nonatomic, strong) CLLocation *lastLocation;
 
+@property (nonatomic, strong) NSLayoutConstraint* heightPickerViewConstraint;
+
+@property (nonatomic, strong) SMCameraView* cameraView;
 
 @end
 
@@ -38,6 +45,10 @@
     self.inputTextView.placeholder = NSLocalizedString(@"Ваше сообщение...", nil);
     self.inputTextView.delegate = self;
 
+    self.cameraView = [[SMCameraView alloc] initWithFrame:CGRectMake(0, self.view.frame.size.height - cameraViewHeight, self.view.frame.size.width, cameraViewHeight)];
+    self.cameraView.delegate = self;
+    self.cameraView.tag = cameraViewTag;
+    
     if ([CLLocationManager locationServicesEnabled]) {
         self.locationManager = [[CLLocationManager alloc] init];
         self.locationManager.delegate = self;
@@ -47,34 +58,6 @@
     
     [self loadFromCache];
     [self loadData];
-}
-
-- (void)loadData {
-    __weak typeof(self) weakSelf = self;
-    [SMAPIManager getMessagesWithCompletion:^(NSArray<SMMessage *> *messages) {
-        [weakSelf updateDataWithMessages:messages];
-    } isFromCache:NO];
-}
-
-- (void)loadFromCache {
-    __weak typeof(self) weakSelf = self;
-    [SMAPIManager getMessagesWithCompletion:^(NSArray<SMMessage *> *messages) {
-        [weakSelf updateDataWithMessages:messages];
-    } isFromCache:YES];
-}
-
-- (void)updateDataWithMessages:(NSArray<SMMessage*> *)messages {
-    self.messages = [NSMutableArray arrayWithArray:messages];
-
-    [self.tableView reloadData];
-    [self scrollToBottom];
-}
-
-- (void)scrollToBottom {
-    if (self.messages.count > 0) {
-        NSIndexPath* lastIndexPath = [NSIndexPath indexPathForRow:self.messages.count - 1 inSection:0];
-        [self.tableView scrollToRowAtIndexPath:lastIndexPath atScrollPosition:UITableViewScrollPositionTop animated:YES];
-    }
 }
 
 #pragma mark - super class
@@ -112,6 +95,16 @@
 }
 
 - (IBAction)cameraButtonTapped:(id)sender {
+    if (![self.view viewWithTag:cameraViewTag]) {
+        [self.view addSubview:self.cameraView];
+        [self.cameraView setTranslatesAutoresizingMaskIntoConstraints:NO];
+        NSDictionary *views = @{@"cameraView": self.cameraView};
+        [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:[cameraView]|" options:0 metrics:nil views:views]];
+        [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|[cameraView]|" options:0 metrics:nil views:views]];
+        self.heightPickerViewConstraint = [[NSLayoutConstraint constraintsWithVisualFormat:[NSString stringWithFormat:@"V:[cameraView(==%d)]", cameraViewHeight] options:0 metrics:nil views:views] firstObject];
+        [self.cameraView addConstraint:self.heightPickerViewConstraint];
+    }
+    [self animateWithDuration:0.3 bottomOffset:cameraViewHeight];
 }
 
 - (IBAction)imagesButtonTapped:(id)sender {
@@ -183,13 +176,58 @@
 
 }
 
+#pragma mark - SMCameraViewDelegage
+
+- (void)fullScreenModeChanged {
+    if (self.heightPickerViewConstraint.constant < self.view.frame.size.height) {
+        self.heightPickerViewConstraint.constant = self.view.frame.size.height;
+
+    } else {
+        self.heightPickerViewConstraint.constant = cameraViewHeight;
+    }
+    
+    [UIView animateWithDuration:0.6 animations:^{
+        [self.view layoutIfNeeded];
+    }];
+}
+
+
 #pragma mark - private methods
+
+- (void)loadData {
+    __weak typeof(self) weakSelf = self;
+    [SMAPIManager getMessagesWithCompletion:^(NSArray<SMMessage *> *messages) {
+        [weakSelf updateDataWithMessages:messages];
+    } isFromCache:NO];
+}
+
+- (void)loadFromCache {
+    __weak typeof(self) weakSelf = self;
+    [SMAPIManager getMessagesWithCompletion:^(NSArray<SMMessage *> *messages) {
+        [weakSelf updateDataWithMessages:messages];
+    } isFromCache:YES];
+}
+
+- (void)updateDataWithMessages:(NSArray<SMMessage*> *)messages {
+    self.messages = [NSMutableArray arrayWithArray:messages];
+    
+    [self.tableView reloadData];
+    [self scrollToBottom];
+}
+
+- (void)scrollToBottom {
+    if (self.messages.count > 0) {
+        NSIndexPath* lastIndexPath = [NSIndexPath indexPathForRow:self.messages.count - 1 inSection:0];
+        [self.tableView scrollToRowAtIndexPath:lastIndexPath atScrollPosition:UITableViewScrollPositionTop animated:YES];
+    }
+}
 
 - (void)animateWithDuration:(CGFloat)duration bottomOffset:(CGFloat)bottomOffset {
     self.bottomConstraint.constant = bottomOffset;
-    
     [UIView animateWithDuration:duration animations:^{
         [self.view layoutIfNeeded];
+    } completion:^(BOOL finished) {
+        [self scrollToBottom];
     }];
 }
 
