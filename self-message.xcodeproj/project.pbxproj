@@ -8,6 +8,15 @@
 
 /* Begin PBXBuildFile section */
 		1A7B33D4757501BCA8F92383 /* libPods-self-message.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F00D53022C86B1DE09BEB676 /* libPods-self-message.a */; };
+		A61595471BECE62A006A68D7 /* SMChatTextTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A61595461BECE62A006A68D7 /* SMChatTextTableViewCell.m */; };
+		A615954E1BECE69E006A68D7 /* SMChatPictureTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A615954D1BECE69E006A68D7 /* SMChatPictureTableViewCell.m */; };
+		A61595521BECE6C9006A68D7 /* SMChatLocationTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A61595511BECE6C9006A68D7 /* SMChatLocationTableViewCell.m */; };
+		A61595551BECFDDD006A68D7 /* SMBubbleView.m in Sources */ = {isa = PBXBuildFile; fileRef = A61595541BECFDDD006A68D7 /* SMBubbleView.m */; };
+		A61595591BED0876006A68D7 /* UITableViewCell+AutoLayoutHeight.m in Sources */ = {isa = PBXBuildFile; fileRef = A61595581BED0876006A68D7 /* UITableViewCell+AutoLayoutHeight.m */; };
+		A61595621BED0A40006A68D7 /* SMSettings.m in Sources */ = {isa = PBXBuildFile; fileRef = A61595611BED0A40006A68D7 /* SMSettings.m */; };
+		A61595651BED67C3006A68D7 /* SMAPIManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A61595641BED67C3006A68D7 /* SMAPIManager.m */; };
+		A61595681BEE2EBD006A68D7 /* SMMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = A61595671BEE2EBD006A68D7 /* SMMessage.m */; };
+		A615956A1BEE573D006A68D7 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = A61595691BEE573D006A68D7 /* libsqlite3.tbd */; };
 		A64C92F41BEA343E008F6744 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A64C92F31BEA343E008F6744 /* main.m */; };
 		A64C92F71BEA343E008F6744 /* SMAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A64C92F61BEA343E008F6744 /* SMAppDelegate.m */; };
 		A64C92FA1BEA343E008F6744 /* SMChatViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A64C92F91BEA343E008F6744 /* SMChatViewController.m */; };
@@ -19,6 +28,23 @@
 
 /* Begin PBXFileReference section */
 		556201E42B6C6DFDF46293AF /* Pods-self-message.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-self-message.debug.xcconfig"; path = "Pods/Target Support Files/Pods-self-message/Pods-self-message.debug.xcconfig"; sourceTree = "<group>"; };
+		A61595451BECE62A006A68D7 /* SMChatTextTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMChatTextTableViewCell.h; sourceTree = "<group>"; };
+		A61595461BECE62A006A68D7 /* SMChatTextTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMChatTextTableViewCell.m; sourceTree = "<group>"; };
+		A615954C1BECE69E006A68D7 /* SMChatPictureTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMChatPictureTableViewCell.h; sourceTree = "<group>"; };
+		A615954D1BECE69E006A68D7 /* SMChatPictureTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMChatPictureTableViewCell.m; sourceTree = "<group>"; };
+		A61595501BECE6C9006A68D7 /* SMChatLocationTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMChatLocationTableViewCell.h; sourceTree = "<group>"; };
+		A61595511BECE6C9006A68D7 /* SMChatLocationTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMChatLocationTableViewCell.m; sourceTree = "<group>"; };
+		A61595531BECFDDD006A68D7 /* SMBubbleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMBubbleView.h; sourceTree = "<group>"; };
+		A61595541BECFDDD006A68D7 /* SMBubbleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMBubbleView.m; sourceTree = "<group>"; };
+		A61595571BED0876006A68D7 /* UITableViewCell+AutoLayoutHeight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableViewCell+AutoLayoutHeight.h"; sourceTree = "<group>"; };
+		A61595581BED0876006A68D7 /* UITableViewCell+AutoLayoutHeight.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableViewCell+AutoLayoutHeight.m"; sourceTree = "<group>"; };
+		A61595601BED0A40006A68D7 /* SMSettings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMSettings.h; sourceTree = "<group>"; };
+		A61595611BED0A40006A68D7 /* SMSettings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMSettings.m; sourceTree = "<group>"; };
+		A61595631BED67C3006A68D7 /* SMAPIManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMAPIManager.h; sourceTree = "<group>"; };
+		A61595641BED67C3006A68D7 /* SMAPIManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMAPIManager.m; sourceTree = "<group>"; };
+		A61595661BEE2EBD006A68D7 /* SMMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMMessage.h; sourceTree = "<group>"; };
+		A61595671BEE2EBD006A68D7 /* SMMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMMessage.m; sourceTree = "<group>"; };
+		A61595691BEE573D006A68D7 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
 		A64C92EF1BEA343E008F6744 /* self-message.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "self-message.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A64C92F31BEA343E008F6744 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		A64C92F51BEA343E008F6744 /* SMAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SMAppDelegate.h; sourceTree = "<group>"; };
@@ -41,6 +67,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A615956A1BEE573D006A68D7 /* libsqlite3.tbd in Frameworks */,
 				1A7B33D4757501BCA8F92383 /* libPods-self-message.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -51,6 +78,7 @@
 		0F493A8D99EDD663B5C249EF /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				A61595691BEE573D006A68D7 /* libsqlite3.tbd */,
 				F00D53022C86B1DE09BEB676 /* libPods-self-message.a */,
 			);
 			name = Frameworks;
@@ -63,6 +91,79 @@
 				EE7B5C35BE12550ECD0E92A7 /* Pods-self-message.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		A61595421BECE569006A68D7 /* Chat */ = {
+			isa = PBXGroup;
+			children = (
+				A61595531BECFDDD006A68D7 /* SMBubbleView.h */,
+				A61595541BECFDDD006A68D7 /* SMBubbleView.m */,
+				A61595431BECE5C0006A68D7 /* TableViewCells */,
+			);
+			path = Chat;
+			sourceTree = "<group>";
+		};
+		A61595431BECE5C0006A68D7 /* TableViewCells */ = {
+			isa = PBXGroup;
+			children = (
+				A61595441BECE60B006A68D7 /* TextMessage */,
+				A61595481BECE661006A68D7 /* Picture */,
+				A615954F1BECE6B2006A68D7 /* Location */,
+			);
+			path = TableViewCells;
+			sourceTree = "<group>";
+		};
+		A61595441BECE60B006A68D7 /* TextMessage */ = {
+			isa = PBXGroup;
+			children = (
+				A61595451BECE62A006A68D7 /* SMChatTextTableViewCell.h */,
+				A61595461BECE62A006A68D7 /* SMChatTextTableViewCell.m */,
+			);
+			path = TextMessage;
+			sourceTree = "<group>";
+		};
+		A61595481BECE661006A68D7 /* Picture */ = {
+			isa = PBXGroup;
+			children = (
+				A615954C1BECE69E006A68D7 /* SMChatPictureTableViewCell.h */,
+				A615954D1BECE69E006A68D7 /* SMChatPictureTableViewCell.m */,
+			);
+			path = Picture;
+			sourceTree = "<group>";
+		};
+		A615954F1BECE6B2006A68D7 /* Location */ = {
+			isa = PBXGroup;
+			children = (
+				A61595501BECE6C9006A68D7 /* SMChatLocationTableViewCell.h */,
+				A61595511BECE6C9006A68D7 /* SMChatLocationTableViewCell.m */,
+			);
+			path = Location;
+			sourceTree = "<group>";
+		};
+		A61595561BED0822006A68D7 /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				A61595571BED0876006A68D7 /* UITableViewCell+AutoLayoutHeight.h */,
+				A61595581BED0876006A68D7 /* UITableViewCell+AutoLayoutHeight.m */,
+			);
+			path = Categories;
+			sourceTree = "<group>";
+		};
+		A615955A1BED09CF006A68D7 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				A615955F1BED0A1A006A68D7 /* Settings */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		A615955F1BED0A1A006A68D7 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				A61595601BED0A40006A68D7 /* SMSettings.h */,
+				A61595611BED0A40006A68D7 /* SMSettings.m */,
+			);
+			path = Settings;
 			sourceTree = "<group>";
 		};
 		A64C92E61BEA343E008F6744 = {
@@ -138,6 +239,8 @@
 		A64C930F1BEABB24008F6744 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				A61595661BEE2EBD006A68D7 /* SMMessage.h */,
+				A61595671BEE2EBD006A68D7 /* SMMessage.m */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -146,6 +249,7 @@
 			isa = PBXGroup;
 			children = (
 				A6FCD6381BEBE80300981AD8 /* Base */,
+				A61595421BECE569006A68D7 /* Chat */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -154,6 +258,8 @@
 			isa = PBXGroup;
 			children = (
 				A64C93121BEABB7F008F6744 /* API */,
+				A61595561BED0822006A68D7 /* Categories */,
+				A615955A1BED09CF006A68D7 /* Helpers */,
 			);
 			path = Library;
 			sourceTree = "<group>";
@@ -161,6 +267,8 @@
 		A64C93121BEABB7F008F6744 /* API */ = {
 			isa = PBXGroup;
 			children = (
+				A61595631BED67C3006A68D7 /* SMAPIManager.h */,
+				A61595641BED67C3006A68D7 /* SMAPIManager.m */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -295,11 +403,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A61595551BECFDDD006A68D7 /* SMBubbleView.m in Sources */,
+				A61595591BED0876006A68D7 /* UITableViewCell+AutoLayoutHeight.m in Sources */,
+				A61595471BECE62A006A68D7 /* SMChatTextTableViewCell.m in Sources */,
+				A615954E1BECE69E006A68D7 /* SMChatPictureTableViewCell.m in Sources */,
 				A64C930E1BEA3E86008F6744 /* SMViewController.m in Sources */,
 				A64C92FA1BEA343E008F6744 /* SMChatViewController.m in Sources */,
+				A61595651BED67C3006A68D7 /* SMAPIManager.m in Sources */,
+				A61595521BECE6C9006A68D7 /* SMChatLocationTableViewCell.m in Sources */,
 				A64C92F71BEA343E008F6744 /* SMAppDelegate.m in Sources */,
+				A61595621BED0A40006A68D7 /* SMSettings.m in Sources */,
 				A64C92F41BEA343E008F6744 /* main.m in Sources */,
 				A6FCD63B1BEBE82A00981AD8 /* SMTextView.m in Sources */,
+				A61595681BEE2EBD006A68D7 /* SMMessage.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

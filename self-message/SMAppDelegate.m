@@ -8,6 +8,7 @@
 
 #import "SMAppDelegate.h"
 #import <Parse/Parse.h>
+#import "SMSettings.h"
 
 @interface SMAppDelegate ()
 
@@ -27,6 +28,14 @@
     
     // [Optional] Track statistics around application opens.
     [PFAnalytics trackAppOpenedWithLaunchOptions:launchOptions];
+    
+    if (![SMSettings sharedInstance].userID) {
+        CFUUIDRef uuidRef = CFUUIDCreate(NULL);
+        CFStringRef uuidStringRef = CFUUIDCreateString(NULL, uuidRef);
+        CFRelease(uuidRef);
+        NSString* userID =  (__bridge_transfer NSString *)uuidStringRef;
+        [[SMSettings sharedInstance] setUserID:userID];
+    }
     return YES;
 }
 
