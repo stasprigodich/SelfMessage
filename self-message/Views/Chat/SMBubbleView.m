@@ -10,5 +10,13 @@
 
 @implementation SMBubbleView
 
+- (id)initWithCoder:(NSCoder *)aDecoder {
+    self = [super initWithCoder:aDecoder];
+    if (self) {
+        self.layer.cornerRadius = 20;
+        self.clipsToBounds = YES;
+    }
+    return self;
+}
 
 @end

@@ -14,6 +14,7 @@
 #import "SMSettings.h"
 #import "SMAPIManager.h"
 #import "SMCameraView.h"
+#import "UITableViewCell+AutoLayoutHeight.h"
 
 static const int cameraViewHeight = 230;
 static const int cameraViewTag = 3;
@@ -173,7 +174,21 @@ static const int cameraViewTag = 3;
         [cell configureWithLatitude:message.location.latitude longitude:message.location.longitude];
         return cell;
     }
+}
 
+#pragma mark - UITableViewDelegate
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    SMMessage* message = self.messages[indexPath.row];
+    if (message.type == SMMessageTypeText) {
+        SMChatTextTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kChatTextCellID];
+        CGFloat height = [cell heightWithWidth:self.tableView.frame.size.width customizationBlock:^(id cell) {
+            [cell configureWithText:message.text];
+        }];
+        return height;
+    }
+    return 150;
 }
 
 #pragma mark - SMCameraViewDelegage
@@ -181,7 +196,6 @@ static const int cameraViewTag = 3;
 - (void)fullScreenModeChanged {
     if (self.heightPickerViewConstraint.constant < self.view.frame.size.height) {
         self.heightPickerViewConstraint.constant = self.view.frame.size.height;
-
     } else {
         self.heightPickerViewConstraint.constant = cameraViewHeight;
     }

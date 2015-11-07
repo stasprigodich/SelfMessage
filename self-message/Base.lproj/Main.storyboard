@@ -30,10 +30,10 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uFv-GP-Se5" customClass="SMBubbleView">
-                                                    <rect key="frame" x="70" y="9" width="240" height="79"/>
+                                                    <rect key="frame" x="140" y="9" width="170" height="79"/>
                                                     <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Текст сообщения" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YWh-CD-8NY">
-                                                            <rect key="frame" x="8" y="8" width="224" height="63"/>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Текст сообщения" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YWh-CD-8NY">
+                                                            <rect key="frame" x="15" y="8" width="140" height="63"/>
                                                             <animations/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -45,9 +45,9 @@
                                                     <constraints>
                                                         <constraint firstItem="YWh-CD-8NY" firstAttribute="top" secondItem="uFv-GP-Se5" secondAttribute="top" constant="8" id="Cbd-GR-qeo"/>
                                                         <constraint firstAttribute="bottom" secondItem="YWh-CD-8NY" secondAttribute="bottom" constant="8" id="GOU-GS-Djk"/>
-                                                        <constraint firstAttribute="trailing" secondItem="YWh-CD-8NY" secondAttribute="trailing" constant="8" id="GvO-fr-Qp2"/>
-                                                        <constraint firstAttribute="width" constant="240" id="b4d-rf-mdZ"/>
-                                                        <constraint firstItem="YWh-CD-8NY" firstAttribute="leading" secondItem="uFv-GP-Se5" secondAttribute="leading" constant="8" id="pNN-OW-cy6"/>
+                                                        <constraint firstAttribute="trailing" secondItem="YWh-CD-8NY" secondAttribute="trailing" constant="15" id="GvO-fr-Qp2"/>
+                                                        <constraint firstAttribute="width" relation="lessThanOrEqual" constant="240" id="b4d-rf-mdZ"/>
+                                                        <constraint firstItem="YWh-CD-8NY" firstAttribute="leading" secondItem="uFv-GP-Se5" secondAttribute="leading" constant="15" id="pNN-OW-cy6"/>
                                                     </constraints>
                                                 </view>
                                             </subviews>
