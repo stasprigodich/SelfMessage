@@ -19,6 +19,9 @@
 		A615956A1BEE573D006A68D7 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = A61595691BEE573D006A68D7 /* libsqlite3.tbd */; };
 		A615956E1BEE7942006A68D7 /* SMCameraView.m in Sources */ = {isa = PBXBuildFile; fileRef = A615956D1BEE7942006A68D7 /* SMCameraView.m */; };
 		A61595701BEE795B006A68D7 /* SMCameraView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A615956F1BEE795B006A68D7 /* SMCameraView.xib */; };
+		A61595741BEF9DC7006A68D7 /* SMPhotoGalleryView.m in Sources */ = {isa = PBXBuildFile; fileRef = A61595731BEF9DC7006A68D7 /* SMPhotoGalleryView.m */; };
+		A61595761BEF9DE0006A68D7 /* SMPhotoGalleryView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A61595751BEF9DE0006A68D7 /* SMPhotoGalleryView.xib */; };
+		A615957A1BEFEBCE006A68D7 /* SMPhotosHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = A61595791BEFEBCE006A68D7 /* SMPhotosHelper.m */; };
 		A64C92F41BEA343E008F6744 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A64C92F31BEA343E008F6744 /* main.m */; };
 		A64C92F71BEA343E008F6744 /* SMAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A64C92F61BEA343E008F6744 /* SMAppDelegate.m */; };
 		A64C92FA1BEA343E008F6744 /* SMChatViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A64C92F91BEA343E008F6744 /* SMChatViewController.m */; };
@@ -50,6 +53,11 @@
 		A615956C1BEE7942006A68D7 /* SMCameraView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMCameraView.h; sourceTree = "<group>"; };
 		A615956D1BEE7942006A68D7 /* SMCameraView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMCameraView.m; sourceTree = "<group>"; };
 		A615956F1BEE795B006A68D7 /* SMCameraView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SMCameraView.xib; sourceTree = "<group>"; };
+		A61595721BEF9DC7006A68D7 /* SMPhotoGalleryView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMPhotoGalleryView.h; sourceTree = "<group>"; };
+		A61595731BEF9DC7006A68D7 /* SMPhotoGalleryView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMPhotoGalleryView.m; sourceTree = "<group>"; };
+		A61595751BEF9DE0006A68D7 /* SMPhotoGalleryView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SMPhotoGalleryView.xib; sourceTree = "<group>"; };
+		A61595781BEFEBCE006A68D7 /* SMPhotosHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMPhotosHelper.h; sourceTree = "<group>"; };
+		A61595791BEFEBCE006A68D7 /* SMPhotosHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMPhotosHelper.m; sourceTree = "<group>"; };
 		A64C92EF1BEA343E008F6744 /* self-message.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "self-message.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A64C92F31BEA343E008F6744 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		A64C92F51BEA343E008F6744 /* SMAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SMAppDelegate.h; sourceTree = "<group>"; };
@@ -157,6 +165,7 @@
 		A615955A1BED09CF006A68D7 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				A61595771BEFE6B9006A68D7 /* Images */,
 				A615955F1BED0A1A006A68D7 /* Settings */,
 			);
 			path = Helpers;
@@ -179,6 +188,25 @@
 				A615956F1BEE795B006A68D7 /* SMCameraView.xib */,
 			);
 			path = Camera;
+			sourceTree = "<group>";
+		};
+		A61595711BEF9D83006A68D7 /* Gallery */ = {
+			isa = PBXGroup;
+			children = (
+				A61595721BEF9DC7006A68D7 /* SMPhotoGalleryView.h */,
+				A61595731BEF9DC7006A68D7 /* SMPhotoGalleryView.m */,
+				A61595751BEF9DE0006A68D7 /* SMPhotoGalleryView.xib */,
+			);
+			path = Gallery;
+			sourceTree = "<group>";
+		};
+		A61595771BEFE6B9006A68D7 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				A61595781BEFEBCE006A68D7 /* SMPhotosHelper.h */,
+				A61595791BEFEBCE006A68D7 /* SMPhotosHelper.m */,
+			);
+			path = Images;
 			sourceTree = "<group>";
 		};
 		A64C92E61BEA343E008F6744 = {
@@ -266,6 +294,7 @@
 				A6FCD6381BEBE80300981AD8 /* Base */,
 				A61595421BECE569006A68D7 /* Chat */,
 				A615956B1BEE7923006A68D7 /* Camera */,
+				A61595711BEF9D83006A68D7 /* Gallery */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -359,6 +388,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A61595761BEF9DE0006A68D7 /* SMPhotoGalleryView.xib in Resources */,
 				A64C92FF1BEA343E008F6744 /* Assets.xcassets in Resources */,
 				A64C92FD1BEA343E008F6744 /* Main.storyboard in Resources */,
 				A61595701BEE795B006A68D7 /* SMCameraView.xib in Resources */,
@@ -425,8 +455,10 @@
 				A61595471BECE62A006A68D7 /* SMChatTextTableViewCell.m in Sources */,
 				A615954E1BECE69E006A68D7 /* SMChatPictureTableViewCell.m in Sources */,
 				A64C930E1BEA3E86008F6744 /* SMViewController.m in Sources */,
+				A61595741BEF9DC7006A68D7 /* SMPhotoGalleryView.m in Sources */,
 				A64C92FA1BEA343E008F6744 /* SMChatViewController.m in Sources */,
 				A61595651BED67C3006A68D7 /* SMAPIManager.m in Sources */,
+				A615957A1BEFEBCE006A68D7 /* SMPhotosHelper.m in Sources */,
 				A61595521BECE6C9006A68D7 /* SMChatLocationTableViewCell.m in Sources */,
 				A64C92F71BEA343E008F6744 /* SMAppDelegate.m in Sources */,
 				A61595621BED0A40006A68D7 /* SMSettings.m in Sources */,

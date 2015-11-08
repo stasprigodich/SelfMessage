@@ -14,12 +14,16 @@
 #import "SMSettings.h"
 #import "SMAPIManager.h"
 #import "SMCameraView.h"
+#import "SMPhotoGalleryView.h"
 #import "UITableViewCell+AutoLayoutHeight.h"
 
-static const int cameraViewHeight = 230;
+static const int cameraViewHeight = 270;
 static const int cameraViewTag = 3;
 
-@interface SMChatViewController () <UITableViewDataSource, UITableViewDelegate, UITextViewDelegate, CLLocationManagerDelegate, SMCameraViewDelegate>
+static const int photoGalleryViewHeight = 125;
+static const int photoGalleryViewTag = 5;
+
+@interface SMChatViewController () <UITableViewDataSource, UITableViewDelegate, UITextViewDelegate, CLLocationManagerDelegate, SMCameraViewDelegate, SMPhotoGalleryViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *bottomConstraint;
@@ -29,12 +33,14 @@ static const int cameraViewTag = 3;
 
 @property (nonatomic, strong) NSMutableArray<SMMessage*>* messages;
 
-@property (nonatomic,strong) CLLocationManager *locationManager;
+@property (nonatomic, strong) CLLocationManager *locationManager;
 @property (nonatomic, strong) CLLocation *lastLocation;
 
 @property (nonatomic, strong) NSLayoutConstraint* heightPickerViewConstraint;
+@property (nonatomic, strong) NSLayoutConstraint* heightGalleryViewConstraint;
 
 @property (nonatomic, strong) SMCameraView* cameraView;
+@property (nonatomic, strong) SMPhotoGalleryView* photoGalleryView;
 
 @end
 
@@ -49,6 +55,10 @@ static const int cameraViewTag = 3;
     self.cameraView = [[SMCameraView alloc] initWithFrame:CGRectMake(0, self.view.frame.size.height - cameraViewHeight, self.view.frame.size.width, cameraViewHeight)];
     self.cameraView.delegate = self;
     self.cameraView.tag = cameraViewTag;
+  
+    self.photoGalleryView = [[SMPhotoGalleryView alloc] initWithFrame:CGRectMake(0, self.view.frame.size.height - cameraViewHeight, self.view.frame.size.width, photoGalleryViewHeight)];
+    self.photoGalleryView.delegate = self;
+    self.photoGalleryView.tag = photoGalleryViewTag;
     
     if ([CLLocationManager locationServicesEnabled]) {
         self.locationManager = [[CLLocationManager alloc] init];
@@ -66,6 +76,7 @@ static const int cameraViewTag = 3;
 - (void)dismissKeyboard {
     [super dismissKeyboard];
     [self hideCameraView];
+    [self hidePhotoGalleryView];
     [self animateWithDuration:0.3 bottomOffset:0];
 }
 
@@ -103,6 +114,7 @@ static const int cameraViewTag = 3;
 }
 
 - (IBAction)cameraButtonTapped:(id)sender {
+    [self hidePhotoGalleryView];
     [self.inputTextView resignFirstResponder];
     if (![self.view viewWithTag:cameraViewTag]) {
         [self.view addSubview:self.cameraView];
@@ -122,6 +134,23 @@ static const int cameraViewTag = 3;
 }
 
 - (IBAction)imagesButtonTapped:(id)sender {
+    [self hideCameraView];
+    [self.inputTextView resignFirstResponder];
+    if (![self.view viewWithTag:photoGalleryViewTag]) {
+        [self.view addSubview:self.photoGalleryView];
+        [self.photoGalleryView setTranslatesAutoresizingMaskIntoConstraints:NO];
+        NSDictionary *views = @{@"photoGalleryView": self.photoGalleryView};
+        [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:[photoGalleryView]|" options:0 metrics:nil views:views]];
+        [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|[photoGalleryView]|" options:0 metrics:nil views:views]];
+        self.heightGalleryViewConstraint = [[NSLayoutConstraint constraintsWithVisualFormat:[NSString stringWithFormat:@"V:[photoGalleryView(==%d)]", photoGalleryViewHeight] options:0 metrics:nil views:views] firstObject];
+        [self.photoGalleryView addConstraint:self.heightGalleryViewConstraint];
+    }
+    [self animateWithDuration:0.3 bottomOffset:photoGalleryViewHeight];
+    self.heightGalleryViewConstraint.constant = photoGalleryViewHeight;
+    self.photoGalleryView.hidden = NO;
+    [UIView animateWithDuration:0.3 animations:^{
+        [self.view layoutIfNeeded];
+    }];
 }
 
 - (IBAction)locationButtonTapped:(id)sender {
@@ -257,6 +286,16 @@ static const int cameraViewTag = 3;
         self.cameraView.hidden = YES;
     }];
 }
+
+- (void)hidePhotoGalleryView {
+    self.heightGalleryViewConstraint.constant = 0;
+    [UIView animateWithDuration:0.2 animations:^{
+        [self.view layoutIfNeeded];
+    } completion:^(BOOL finished) {
+        self.photoGalleryView.hidden = YES;
+    }];
+}
+
 
 - (void)animateWithDuration:(CGFloat)duration bottomOffset:(CGFloat)bottomOffset {
     self.bottomConstraint.constant = bottomOffset;
