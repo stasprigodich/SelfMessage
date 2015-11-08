@@ -10,7 +10,6 @@
 
 @interface SMCameraView() <UINavigationControllerDelegate, UIImagePickerControllerDelegate>
 
-@property (weak, nonatomic) IBOutlet UIView *toolView;
 @property (nonatomic, strong) UIView *pickerView;
 @property (nonatomic) UIImagePickerController* pickerController;
 @property (nonatomic, strong) UIView* contentView;
@@ -61,7 +60,7 @@
     
     self.pickerView = self.pickerController.view;
     [self.pickerView setTranslatesAutoresizingMaskIntoConstraints:NO];
-    [self.contentView insertSubview:self.pickerView belowSubview:self.toolView];
+    [self.contentView insertSubview:self.pickerView atIndex:0];
     
     NSDictionary *views = @{@"pickerView": self.pickerView};
     [self.contentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|[pickerView]|" options:0 metrics:nil views:views]];

@@ -211,11 +211,11 @@
                                         </userDefinedRuntimeAttributes>
                                     </view>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Tq-3Y-v2f" userLabel="cameraButton">
-                                        <rect key="frame" x="43" y="13" width="24" height="18"/>
+                                        <rect key="frame" x="30" y="0.0" width="44" height="44"/>
                                         <animations/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="24" id="2KR-bW-aml"/>
-                                            <constraint firstAttribute="height" constant="18" id="t6n-BE-84g"/>
+                                            <constraint firstAttribute="width" constant="44" id="2KR-bW-aml"/>
+                                            <constraint firstAttribute="height" constant="44" id="t6n-BE-84g"/>
                                         </constraints>
                                         <state key="normal" image="button_camera"/>
                                         <connections>
@@ -223,11 +223,11 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="27J-de-64g" userLabel="locationButton">
-                                        <rect key="frame" x="256" y="12" width="21" height="21"/>
+                                        <rect key="frame" x="246" y="0.0" width="44" height="44"/>
                                         <animations/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="21" id="F1I-0a-iAx"/>
-                                            <constraint firstAttribute="height" constant="21" id="xxh-HR-Ui0"/>
+                                            <constraint firstAttribute="width" constant="44" id="F1I-0a-iAx"/>
+                                            <constraint firstAttribute="height" constant="44" id="xxh-HR-Ui0"/>
                                         </constraints>
                                         <state key="normal" image="button_geo"/>
                                         <connections>
@@ -235,11 +235,11 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7ol-Gv-ex8" userLabel="imagesButton">
-                                        <rect key="frame" x="150" y="12" width="21" height="21"/>
+                                        <rect key="frame" x="138" y="0.0" width="44" height="44"/>
                                         <animations/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="21" id="RG6-ws-fnH"/>
-                                            <constraint firstAttribute="width" constant="21" id="g4h-cF-n2W"/>
+                                            <constraint firstAttribute="height" constant="44" id="RG6-ws-fnH"/>
+                                            <constraint firstAttribute="width" constant="44" id="g4h-cF-n2W"/>
                                         </constraints>
                                         <state key="normal" image="button_images"/>
                                         <connections>
@@ -251,9 +251,9 @@
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstItem="Img-k3-8dW" firstAttribute="leading" secondItem="wOM-zn-BfV" secondAttribute="leading" constant="6" id="3FL-oH-2xX"/>
-                                    <constraint firstAttribute="trailing" secondItem="27J-de-64g" secondAttribute="trailing" constant="43" id="5of-Bj-GTz"/>
+                                    <constraint firstAttribute="trailing" secondItem="27J-de-64g" secondAttribute="trailing" constant="30" id="5of-Bj-GTz"/>
                                     <constraint firstItem="27J-de-64g" firstAttribute="centerY" secondItem="wOM-zn-BfV" secondAttribute="centerY" id="97V-nU-VGg"/>
-                                    <constraint firstItem="8Tq-3Y-v2f" firstAttribute="leading" secondItem="wOM-zn-BfV" secondAttribute="leading" constant="43" id="LwH-DS-9MK"/>
+                                    <constraint firstItem="8Tq-3Y-v2f" firstAttribute="leading" secondItem="wOM-zn-BfV" secondAttribute="leading" constant="30" id="LwH-DS-9MK"/>
                                     <constraint firstAttribute="height" constant="44" id="TtK-jj-04z"/>
                                     <constraint firstItem="8Tq-3Y-v2f" firstAttribute="centerY" secondItem="wOM-zn-BfV" secondAttribute="centerY" id="ha8-28-M4J"/>
                                     <constraint firstAttribute="trailing" secondItem="Img-k3-8dW" secondAttribute="trailing" constant="6" id="jCr-hb-Cy6"/>

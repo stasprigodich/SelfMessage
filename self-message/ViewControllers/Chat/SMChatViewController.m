@@ -63,6 +63,12 @@ static const int cameraViewTag = 3;
 
 #pragma mark - super class
 
+- (void)dismissKeyboard {
+    [super dismissKeyboard];
+    [self hideCameraView];
+    [self animateWithDuration:0.3 bottomOffset:0];
+}
+
 - (BOOL)enableKeyboardHidingOnTouch {
     return YES;
 }
@@ -73,6 +79,7 @@ static const int cameraViewTag = 3;
     NSTimeInterval animationDuration = [[info objectForKey:UIKeyboardAnimationDurationUserInfoKey] doubleValue];
     CGRect keyboardFrame = [kbFrame CGRectValue];
     CGFloat height = keyboardFrame.size.height;
+    [self hideCameraView];
     [self animateWithDuration:animationDuration bottomOffset:height];
 }
 
@@ -96,6 +103,7 @@ static const int cameraViewTag = 3;
 }
 
 - (IBAction)cameraButtonTapped:(id)sender {
+    [self.inputTextView resignFirstResponder];
     if (![self.view viewWithTag:cameraViewTag]) {
         [self.view addSubview:self.cameraView];
         [self.cameraView setTranslatesAutoresizingMaskIntoConstraints:NO];
@@ -106,6 +114,11 @@ static const int cameraViewTag = 3;
         [self.cameraView addConstraint:self.heightPickerViewConstraint];
     }
     [self animateWithDuration:0.3 bottomOffset:cameraViewHeight];
+    self.heightPickerViewConstraint.constant = cameraViewHeight;
+    self.cameraView.hidden = NO;
+    [UIView animateWithDuration:0.3 animations:^{
+        [self.view layoutIfNeeded];
+    }];
 }
 
 - (IBAction)imagesButtonTapped:(id)sender {
@@ -232,8 +245,17 @@ static const int cameraViewTag = 3;
 - (void)scrollToBottom {
     if (self.messages.count > 0) {
         NSIndexPath* lastIndexPath = [NSIndexPath indexPathForRow:self.messages.count - 1 inSection:0];
-        [self.tableView scrollToRowAtIndexPath:lastIndexPath atScrollPosition:UITableViewScrollPositionTop animated:YES];
+        [self.tableView scrollToRowAtIndexPath:lastIndexPath atScrollPosition:UITableViewScrollPositionBottom animated:YES];
     }
+}
+
+- (void)hideCameraView {
+    self.heightPickerViewConstraint.constant = 0;
+    [UIView animateWithDuration:0.2 animations:^{
+        [self.view layoutIfNeeded];
+    } completion:^(BOOL finished) {
+        self.cameraView.hidden = YES;
+    }];
 }
 
 - (void)animateWithDuration:(CGFloat)duration bottomOffset:(CGFloat)bottomOffset {
@@ -241,7 +263,7 @@ static const int cameraViewTag = 3;
     [UIView animateWithDuration:duration animations:^{
         [self.view layoutIfNeeded];
     } completion:^(BOOL finished) {
-        [self scrollToBottom];
+        //[self scrollToBottom];
     }];
 }
 
